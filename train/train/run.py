@@ -112,3 +112,5 @@ if __name__ == "__main__":
     logger.info(f"Training model with parameters: {train_params}")
 
     train(args.dataset_path, train_params, args.artefacts_path, args.add_timestamp)
+# command to run the script
+# python3 -m train.train.run train/data/training-data/stackoverflow_posts.csv train/conf/train-conf.yml train/data

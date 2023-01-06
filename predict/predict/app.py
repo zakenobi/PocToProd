@@ -25,9 +25,9 @@ def predict():
     # get the model path from the data
     model_path = data_df["model_path"][0]
     # load the model
-    model = run.load_model(model_path)
+    model = run.TextPredictionModel.from_artefacts(model_path)
     # predict the data
-    predictions = model.predict(data_df)
+    predictions = model.predict(data_df["text"])
     # create a response
     response = {"predictions": predictions}
     # return the response
@@ -45,3 +45,19 @@ def health():
 @app.route("/", methods=["GET"])
 def hello():
     return "Hello World!"
+
+# Create a page to test the model with any text
+@app.route("/test", methods=["GET"])
+def test():
+    return """
+    <html>
+        <body>
+            <form action="/predict" method="post">
+                <label for="text">Text:</label><br>
+                <input type="text" id="text" name="text" value="How to create a new column in pandas dataframe?"><br>
+                <input type="hidden" id="model_path" name="model_path" value="artefacts">
+                <input type="submit" value="Submit">
+            </form>
+        </body>
+    </html>
+    """

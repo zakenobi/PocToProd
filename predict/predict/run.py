@@ -32,7 +32,7 @@ class TextPredictionModel:
         """
         # TODO: CODE HERE
         # load model
-        model = load_model.load(artefacts_path/"model.h5")
+        model = load_model(f"{artefacts_path}/model.h5")
 
         # TODO: CODE HERE
         # load params
@@ -90,6 +90,10 @@ if __name__ == "__main__":
     else:
         print(f'Predictions for `{args.text}`')
         print(model.predict([args.text]))
+
+# Usage in python:
+# import run
+# model = run.TextPredictionModel.from_artefacts("train/data/artefacts/train/data/2023-01-05-16-58-53")
         
-# command to run the script
-# python3 -m train.train.run train/data/training-data/stackoverflow_posts.csv train/conf/train-conf.yml train/data
+# Command to run the script:
+# python -m predict/predict/run.py train/data/artefacts/train/data/2023-01-05-16-58-53 "How to create a new column in pandas dataframe?"
