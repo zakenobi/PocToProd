@@ -1,0 +1,14 @@
+{
+    "python.testing.pytestArgs": [
+        "preprocessing"
+    ],
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./preprocessing",
+        "-p",
+        "*test*.py"
+    ]
+}
